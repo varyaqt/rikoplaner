@@ -1,3 +1,3 @@
 print("Riko")
 
-print(4)
+print(42)
