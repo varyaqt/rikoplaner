@@ -25,4 +25,3 @@ class TaskRepository:
             task_models = result.scalars().all()
             task_schemas = [STask.model_validate() for task_model in task_models]
             return task_schemas
-

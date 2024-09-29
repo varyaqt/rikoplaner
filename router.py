@@ -19,4 +19,3 @@ async def add_task(task: Annotated[STaskAdd, Depends()]):
 async def get_tasks() -> list[STask]:
     tasks = await TaskRepository.find_all()
     return tasks
-
