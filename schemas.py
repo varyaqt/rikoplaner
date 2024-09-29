@@ -7,5 +7,3 @@ class STaskAdd(BaseModel):
 
 class STask(STaskAdd):
     id: int
-
-
