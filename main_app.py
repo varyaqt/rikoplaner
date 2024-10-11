@@ -37,9 +37,9 @@ class User(BaseModel):
     def validate_password(cls, value):
         password_length = len(value)
         if password_length < 8:
-            raise ValueError("Длина пароля должна быть не меньше 8 символов")
+            raise ValueError("Длина пароля должна быть не менее 8 символов")
         if password_length > 16:
-            raise ValueError("Длина пароля должна быть не больше 16 символов")
+            raise ValueError("Длина пароля должна быть не более 16 символов")
         list_numbers = "0123456789"
         list_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         flag_n = 0
