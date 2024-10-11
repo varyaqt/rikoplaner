@@ -60,5 +60,5 @@ class User(BaseModel):
 
 @app.post("/register")
 def register_user(user: User):
-    # здесь добавить логику для сохранения пользователя в базу данных
+    # здесь добавить логику для сохранения в базу данных
     return {"message": "User registered successfully", "user": user}
