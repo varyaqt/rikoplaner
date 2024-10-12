@@ -1,9 +1,14 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel, field_validator
+from pymongo import MongoClient
 
 
-app = FastAPI()
+app = FastAPI(title="RIKONOTES", description="Your personal task destroyer С:")
 
+#Подключение к MongoDB
+client = MongoClient('mongodb://localhost:27017/')
+db = client['your_database_name']
+collection = db['users']
 
 class User(BaseModel):
     username: str
@@ -30,6 +35,8 @@ class User(BaseModel):
                 break
         if flag_l==0:
             raise ValueError("В логине должна быть хотя бы одна буква")
+        if len(value)<5:
+            raise ValueError("Слишком короткий логин, должно быть хотя бы 5 символов")
         return value
 
     @field_validator("password")
@@ -62,3 +69,11 @@ class User(BaseModel):
 def register_user(user: User):
     # здесь добавить логику для сохранения в базу данных
     return {"message": "User registered successfully", "user": user}
+
+'''
+@app.post("/register")
+def register_user(user: User):
+    # Сохранение пользователя в MongoDB
+    user_data = user.model_dump()
+    collection.insert_one(user_data)
+    return {"message": "User registered successfully", "user": user}'''
