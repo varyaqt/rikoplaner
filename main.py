@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, field_validator
 from pymongo import MongoClient
+from datetime import datetime
 
 
 app = FastAPI(title="RIKONOTES", description="Your personal task destroyer С:")
@@ -77,3 +78,8 @@ def register_user(user: User):
     user_data = user.model_dump()
     collection.insert_one(user_data)
     return {"message": "User registered successfully", "user": user}'''
+
+class Task(BaseModel):
+    title: str
+    description: str
+    due_date: datetime
