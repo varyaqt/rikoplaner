@@ -4,14 +4,45 @@
     <title>
       RikoNotes: Авторизация
     </title>
-    <link rel="icon" href="style-icons/icon-for-head.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="icons/icon-for-head.svg">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/registration.css">
   </head>
-  <body>
+  <body class="body-registration">
     <div class="background">
       <div class="registration-container">
-        <img src="style-icons/icon-of-planer-penguin.svg">
+        <img class="penguin-icon" src="icons/penguin.svg">
+        <p class="registration-text">РЕГИСТРАЦИЯ</p>
+        <form class="registration-form">
+          <div class="input-stroke">
+            <div class="icon-input">
+              <img src="icons/user-icon.png">
+            </div>
+            <input class="login-input" type="text" placeholder="Введите логин"></input>
+          </div>
+          <div class="input-stroke">
+            <div class="icon-input">
+              <img src="icons/code-word-icon.png">
+            </div>
+            <input class="code-word-input" type="text" placeholder="Введите кодовое слово"></input>
+          </div>
+          <div class="input-stroke">
+            <div class="icon-input">
+              <img src="icons/password-icon.png">
+            </div>
+            <input class="password-input" type="password" placeholder="Введите пароль"></input>
+          </div>
+          <div class="input-stroke">
+            <div class="icon-input">
+              <img src="icons/password-icon.png">
+            </div>
+            <input class="password-double-input" type="text" placeholder="Повторите пароль"></input>
+          </div>
+          <button class="create-account-button">Создать аккаунт</button>
+        </form>
       </div>
     </div>
   </body>
