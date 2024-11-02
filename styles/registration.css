@@ -1,13 +1,18 @@
 .body-registration {
+  margin: 0;
   background-color: rgb(122, 173, 194);
 }
 
 .background {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  
 }
 
 .registration-container {
@@ -19,20 +24,19 @@
   align-items: center;
   border-radius: 16px;
 
-  height: 470px;
-  width: 400px;
-
-  margin-top: 40px;
+  height: 510px;
+  width: 420px;
+  margin: 10px;
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
   
 }
 
 .penguin-icon {
-  height: 98px;
-  width: 98px;
+  height: 84px;
+  width: 84px;
   margin-top: 30px;
   background-color: white;
-  border-radius: 49px;
+  border-radius: 42px;
   
 }
 
@@ -51,7 +55,7 @@
   justify-items: center;
   align-items: center;
   margin-bottom: 30px;
-  width: 340px;
+  width: 100%;
 }
 
 .login-input,
@@ -82,7 +86,7 @@
   color: white;
   border-radius: 16px;
   border: none;
-  margin-top: 14px;
+  margin-top: 10px;
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -112,4 +116,23 @@
 .icon-input img {
   width: 17px;
   padding-top: 2px;
+}
+
+.already-registered {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.already-registered p {
+  padding-right: 4px;
+  margin: 0;
+  font-size: 17px;
+  color: rgb(60,91,120);
+}
+
+.already-registered a {
+  color: blue;
+  font-size: 17px;
 }
