@@ -143,6 +143,47 @@
 
 }
 
+.code-word-input-container {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+.info-icon {
+  position: absolute;
+  right: 4px;
+  top: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.info-text {
+  background-color: rgb(60,91,120);
+  color: white;
+  font-weight: 400;
+  position: absolute;
+  width: 200px;
+  right: -230px;
+  top: 11px;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.info-icon:hover .info-text {
+  opacity: 1;
+}
+
+.info-icon:hover {
+  cursor: pointer;
+}
+
+.info-icon img {
+  width: 30px;
+}
+
 .icon-input {
   width: 60px;
   background-color: rgb(122,173,194);
