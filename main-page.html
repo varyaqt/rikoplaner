@@ -9,32 +9,41 @@
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/main-page.css">
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/calendar.css">
+
+    <!-- Font Awesome CSS  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">  
+    
   </head>
-  <body>
+  <body class="main-page-body">
 
     <div class="header">
-
       <div class="header-left-section">
         <img src="icons/penguin.svg">
         <p>
           RikoPlaner
         </p>
       </div>
-
       <div class="header-middle-section">
         <p>
             ВЕРХНЯЯ НЕДЕЛЯ
         </p>
       </div>
-
       <div class="header-right-section">
         <div class="tutorial-container">
-          <img src="icons/information-circle-icon.svg">
+          <img src="icons/information-circle-tutorial-icon.svg">
           <p>Туториал</p>
         </div>
         <img src="icons/settings-icon.svg">
       </div>
     </div>
 
+    <div class="calendar-wrapper">
+      <button id="btnPrev" type="button">Предыдущий</button>
+      <button id="btnNext" type="button">Следующий</button>
+      <div id="divCal"></div>
+    </div>
+
+    <script type="module" src="scripts/mainPage.js"></script>
   </body>
 </html>

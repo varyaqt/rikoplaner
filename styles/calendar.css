@@ -1,0 +1,90 @@
+.calendar-wrapper {
+  width: 290px;
+  padding: 13px 10px;
+  border: 1px solid #dcdcff;
+  border-radius: 5px;
+  background: #fff;
+}
+
+table {
+  clear: both;
+  width: 100%;
+  border: 1px solid #dcdcff;
+  border-radius: 3px;
+  border-collapse: collapse;
+  color: rgb(60,91,120);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* grid with days */
+td {
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border-right: 1px solid #dcdcff;
+  border-top: 1px solid #dcdcff;
+  width: 14.28571429%;
+}
+
+/* Days of another month */
+td.not-current {
+  color: rgb(168,168,168);
+  background-color: rgb(242,243,247);
+}
+
+/* Today's day */
+td.today {
+  font-weight: 800;
+  border: 4px solid rgb(60,91,120);
+}
+
+/* Name of the month */
+thead td {
+  border: none;
+  font-weight: bold;
+  color: rgb(60,91,120);
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+#btnPrev {
+  float: left;
+  margin-bottom: 10px;
+}
+
+#btnPrev:before {
+  content: '\f104';
+  font-family: FontAwesome;
+  padding-right: 4px;
+}
+
+#btnNext {
+  float: right;
+  margin-bottom: 10px;
+}
+
+#btnNext:after {
+  content: '\f105';
+  font-family: FontAwesome;
+  padding-left: 4px;
+}
+
+#btnPrev,
+#btnNext {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #c0c0c0;
+  cursor: pointer;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+#btnPrev:hover,
+#btnNext:hover {
+  color: rgb(60,91,120);
+  font-weight: bold;
+}
