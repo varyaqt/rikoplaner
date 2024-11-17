@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/main-page.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/calendar.css">
+    <link rel="stylesheet" href="styles/side-bar.css">
 
     <!-- Font Awesome CSS  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">  
@@ -17,7 +18,16 @@
   </head>
   <body class="main-page-body">
 
-    <div class="header">
+    <!--
+    Скрытый checkbox, отвечающий за переключение ,боковой панели
+
+    `id` атрибут предназначен для связки с атрибутом `for` тега <label>
+
+    Атрибут `hidden` указывает состояние «скрытый» у текущего элемента
+    -->
+    <input type="checkbox" id="nav-toggle" hidden>
+
+    <header class="header">
       <div class="header-left-section">
         <img src="icons/penguin.svg">
         <p>
@@ -36,14 +46,128 @@
         </div>
         <img src="icons/settings-icon.svg">
       </div>
+    </header>
+
+    <div class="side-bar-container">
+
+      <label for="nav-toggle" class="nav-toggle" onclick></label>
+
+      <div class="calendar-container">
+        <div class="calendar-wrapper">
+          <button id="btnPrev" type="button">Предыдущий</button>
+          <button id="btnNext" type="button">Следующий</button>
+          <div id="divCal"></div>
+        </div>
+        <!-- Метка с именем `id` чекбокса в `for` атрибуте -->
+        <label for="nav-toggle" class="nav-toggle" onclick>
+        </label>
+      </div>
+
+      <div class="stack-title-container">
+        <button class="add-todo-to-stack-button">
+          <img src="icons/add-todo-to-stack-icon.svg">
+        </button>
+        <p class="stack-title">
+          СТЕК ЗАДАЧ
+        </p>
+      </div>
+
+      <div class="stack-list-container">
+        <div class="todo-container">
+          <div class="name-of-todo">
+            Позвонить маме 
+          </div>
+          <div class="more-info-of-todo">
+            <img src="icons/file-stack-icon.svg">
+            <img src="icons/description-stack-icon.svg">
+            <img src="icons/deadline-stack-icon.svg">
+            <div class="deadline-date">20.11.24</div>
+          </div>
+        </div>
+        <div class="todo-container">
+          <div class="name-of-todo">
+            Помыть посуду, чтобы она была очень чистая
+          </div>
+          <div class="more-info-of-todo">
+            <img src="icons/file-stack-icon.svg">
+            <img src="icons/description-stack-icon.svg">
+            <img src="icons/deadline-stack-icon.svg">
+            <div class="deadline-date">20.10.24</div>
+          </div>
+        </div>
+        <div class="todo-container">
+          <div class="name-of-todo">
+            Позвонить маме 
+          </div>
+          <div class="more-info-of-todo">
+            <img src="icons/file-stack-icon.svg">
+            <img src="icons/description-stack-icon.svg">
+            <img src="icons/deadline-stack-icon.svg">
+            <div class="deadline-date">20.11.24</div>
+          </div>
+        </div>
+        <div class="todo-container">
+          <div class="name-of-todo">
+            Позвонить маме 
+          </div>
+          <div class="more-info-of-todo">
+            <img src="icons/file-stack-icon.svg">
+            <img src="icons/description-stack-icon.svg">
+            <img src="icons/deadline-stack-icon.svg">
+            <div class="deadline-date">20.11.24</div>
+          </div>
+        </div>
+        <div class="todo-container">
+          <div class="name-of-todo">
+            Позвонить маме 
+          </div>
+          <div class="more-info-of-todo">
+            <img src="icons/file-stack-icon.svg">
+            <img src="icons/description-stack-icon.svg">
+            <img src="icons/deadline-stack-icon.svg">
+            <div class="deadline-date">20.11.24</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="count-todo-in-stack-list">
+        8/10
+      </div>
     </div>
 
-    <div class="calendar-wrapper">
-      <button id="btnPrev" type="button">Предыдущий</button>
-      <button id="btnNext" type="button">Следующий</button>
-      <div id="divCal"></div>
-    </div>
+    <main role="main">
+      <div class="day-container">
+        <div class="day-container-header">
+          <div class="day-title">
+            <div class="date">
+              17 ноября 2024
+            </div>
+            <div class="day-of-week">
+              ВС
+            </div>
+          </div>
+          <button class="add-todo-button">
+            <img src="icons/add-todo-icon.svg">
+            Добавить задачу
+          </button>
+        </div>
+        <div class="todo-day-list">
+          <div class="todo-day-container">
+            <div class="name-of-todo">
+              Позвонить маме 
+            </div>
+            <div class="more-info-of-todo">
+              <img src="icons/file-stack-icon.svg">
+              <img src="icons/description-stack-icon.svg">
+              <img src="icons/deadline-stack-icon.svg">
+              <div class="deadline-date">20.11.24</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    
     <script type="module" src="scripts/mainPage.js"></script>
   </body>
 </html>

@@ -1,0 +1,220 @@
+.side-bar-container {
+  /*  ширна произвольная, не стесняйтесь экспериментировать */
+  width: 295px;
+  min-width: 295px;
+  /* фиксируем и выставляем высоту панели на максимум */
+  position: fixed;
+  top: 55px;
+  bottom: 0;
+  margin: 0;
+  /* сдвигаем (прячем) панель относительно левого края страницы */
+  left: -280px;
+  /* внутренние отступы */
+  padding: 10px 10px;
+  /* плавный переход смещения панели */
+  -webkit-transition: left 0.3s;
+  -moz-transition: left 0.3s;
+  transition: left 0.3s;
+  /* определяем цвет фона панели */
+  background: #F2F3F7;
+  /* поверх других элементов */
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-container {
+  margin: 0;
+  height: 278px;
+  min-height: 278px;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: flex-start;
+}
+
+.stack-title-container {
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.stack-title {
+  color: rgb(60,91,120);
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.add-todo-to-stack-button {
+  height: 25px;
+  width: 25px;
+  border: none;
+}
+
+.add-todo-to-stack-button img {
+ width: 15px;
+ margin-top: 2px;
+ margin-right: 2px;
+}
+
+.add-todo-to-stack-button:hover {
+  cursor: pointer;
+}
+
+.stack-list-container {
+  border: 3px solid rgb(60,91,120);
+  border-radius: 5px;
+  max-height: 320px;
+  min-height: 0px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 255px;
+  overflow-y: scroll;
+}
+
+.todo-container {
+  background-color: rgb(60,91,120);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name-of-todo {
+  flex: 1;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: white;
+  font-weight: 700;
+}
+
+.more-info-of-todo {
+  flex: 1;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.more-info-of-todo img {
+  height: 20px;
+  margin-right: 2px;
+}
+
+.deadline-date {
+  color: white;
+  font-size: 15px;
+  display: inline;
+  margin-left: 2px;
+  padding-top: 2px;
+}
+
+.count-todo-in-stack-list {
+  margin-left: 110px;
+  height: 20px;
+  text-align: start;
+  padding-top: 7px;
+  color: rgb(60,91,120);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+
+/**
+* Кнопка переключения панели
+* тег <label>
+*/
+
+.nav-toggle {
+  /* абсолютно позиционируем */
+  position: absolute;
+  /* относительно левого края панели */
+  left: 278px;
+  /* отступ от верхнего края панели */
+  top: 0;
+  /* внутренние отступы */
+  padding: 0.5em;
+  /* определяем цвет фона переключателя
+   * чаще вчего в соответствии с цветом фона панели
+  */
+  background: inherit;
+  /* цвет текста */
+  color: rgb(60,91,120);
+  /* вид курсора */
+  cursor: pointer;
+  /* размер шрифта */
+  font-size: 1.2em;
+  line-height: 1;
+  /* всегда поверх других элементов страницы */
+  z-index: 2001;
+}
+
+
+/* определяем текст кнопки 
+* символ Unicode (TRIGRAM FOR HEAVEN)
+*/
+
+.nav-toggle::after {
+  content: '\21F1';
+}
+
+/**
+* Скрытый чекбокс (флажок)
+* невидим и недоступен :)
+* имя селектора атрибут флажка
+*/
+
+[id='nav-toggle'] {
+  position: absolute;
+  display: none;
+}
+
+/**
+* Когда флажок установлен, открывается панель
+* используем псевдокласс:checked
+*/
+
+[id='nav-toggle']:checked ~ .side-bar-container {
+  left: 0;
+}
+
+
+/* 
+* смещение контента страницы
+* на размер ширины панели,
+* фишка необязательная, на любителя
+*/
+
+[id='nav-toggle']:checked ~ main {
+  -webkit-transform: translateX(280px);
+  -moz-transform: translateX(280px);
+  transform: translateX(280px);
+}
+
+
+/*
+* изменение символа переключателя,
+* привычный крестик (MULTIPLICATION X), 
+* вы можете испльзовать любой другой значок
+*/
+
+[id='nav-toggle']:checked ~ .side-bar-container > .nav-toggle:after > .nav-toggle {
+  content: '\21F1';
+}
