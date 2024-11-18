@@ -1,13 +1,100 @@
 main {
-  margin-top: 55px;
+  margin-top: 70px;
   margin-left: 27px;
-  background-color: brown;
 
   -webkit-transition: -webkit-transform .3s;
   -moz-transition: -moz-transform .3s;
   transition: transform .3s;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  
+  width: 2445px;
+}
+
+.day-container {
+  min-width: 290px;
+  max-width: 290px;
+  border-radius: 13px;
+  border: 2px solid #D5D4DF;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.last-day-container {
+  margin-right: 50px;
+}
+
+.day-container-header {
+  background-color: #F2F3F7;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid #D5D4DF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.day-title {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-bottom: 12px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.date {
+  margin-right: 7px;
+  color: rgb(60,91,120);
+}
+
+.day-of-week {
+  color: #97AEBE;
+}
+
+.add-todo-button {
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: #97AEBE;
+  font-size: 13px;
+}
+
+.add-todo-button img {
+  height: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.todo-day-list {
+  min-height: 0;
+  max-height: 460px;
+  overflow-y: scroll;
+  flex: 1;
 }
 
 .todo-day-container {
   background-color: rgb(122, 173, 194);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
