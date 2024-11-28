@@ -16,19 +16,19 @@
       <div class="reg-container">
         <img class="penguin-icon" src="icons/penguin.svg">
         <p class="registration-text">РЕГИСТРАЦИЯ</p>
-        <form class="registration-form">
+        <form class="registration-form" id="registrationForm" action="/register" method="POST">
           <div class="input-stroke">
             <div class="icon-input">
               <img src="icons/user-profile-icon.svg">
             </div>
-            <input class="login-input" type="text" placeholder="Введите логин"></input>
+            <input class="login-input" type="text" name="username" placeholder="Введите логин" required></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
               <img src="icons/code-word-icon.png">
             </div>
             <div class="code-word-input-container">
-              <input class="code-word-input" type="password" placeholder="Введите кодовое слово"></input>
+              <input class="code-word-input" type="password" name="code_word" placeholder="Введите кодовое слово" required></input>
               <div class="info-icon">
                 <img src="icons/information-circle-icon.svg">
                 <div class="info-text">
@@ -44,15 +44,15 @@
             <div class="icon-input">
               <img src="icons/password-icon.svg">
             </div>
-            <input class="password-input" type="password" placeholder="Введите пароль"></input>
+            <input class="password-input" type="password" name="password" placeholder="Введите пароль" required></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
               <img src="icons/password-icon.svg">
             </div>
-            <input class="password-double-input" type="text" placeholder="Повторите пароль"></input>
+            <input class="password-double-input" type="password" name="confirm_password" placeholder="Повторите пароль" required></input>
           </div>
-          <button class="create-account-button">
+          <button class="create-account-button" type="submit">
             Создать аккаунт
           </button>
           <div class="already-registered">
@@ -64,5 +64,6 @@
         </form>
       </div>
     </div>
+    <script type="module" src="scripts/register-form.js"></script>
   </body>
 </html>
