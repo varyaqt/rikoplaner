@@ -814,3 +814,14 @@
     height: 100%;
     transition: opacity var(--adp-overlay-transition-duration) var(--adp-overlay-transition-ease), height 0s, width 0s;
 }
+
+.air-datepicker {
+    --adp-font-size: 12px; /* Уменьшаем размер шрифта */
+    --adp-width: 200px; /* Уменьшаем ширину календаря */
+    --adp-day-cell-height: 24px; /* Уменьшаем высоту ячеек дней */
+    --adp-month-cell-height: 32px; /* Уменьшаем высоту ячеек месяцев */
+    --adp-year-cell-height: 40px; /* Уменьшаем высоту ячеек лет */
+    --adp-nav-height: 24px; /* Уменьшаем высоту навигации */
+    --adp-nav-action-size: 24px; /* Уменьшаем размер иконок навигации */
+    --adp-padding: 2px; /* Уменьшаем отступы внутри календаря */
+}
