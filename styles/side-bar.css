@@ -1,7 +1,7 @@
 .side-bar-container {
   /*  ширна произвольная, не стесняйтесь экспериментировать */
-  width: 290px;
-  min-width: 290px;
+  width: 280px;
+  min-width: 280px;
   /* фиксируем и выставляем высоту панели на максимум */
   position: fixed;
   top: 55px;
