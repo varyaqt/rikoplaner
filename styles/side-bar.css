@@ -1,7 +1,7 @@
 .side-bar-container {
   /*  ширна произвольная, не стесняйтесь экспериментировать */
-  width: 280px;
-  min-width: 280px;
+  width: 290px;
+  min-width: 290px;
   /* фиксируем и выставляем высоту панели на максимум */
   position: fixed;
   top: 55px;
@@ -31,10 +31,19 @@
   min-height: 278px;
   width: 280px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-items: center;
   justify-content: center;
   align-items: flex-start;
+}
+
+.calendar {
+  width: 240px;
+  padding: 10px 10px;
+  height: 15px;
+  border: 1px solid #dcdcff;
+  border-radius: 5px;
+  background: #fff;
 }
 
 .stack-title-container {

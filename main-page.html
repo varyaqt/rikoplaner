@@ -9,23 +9,16 @@
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/main-page.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/calendar.css">
     <link rel="stylesheet" href="styles/side-bar.css">
 
     <!-- Font Awesome CSS  -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
+    
+    <!-- для календаря --> 
+    <link rel="stylesheet" href="airdatepicker/air-datepicker.css">
     
   </head>
   <body class="main-page-body">
-
-    <!--
-    Скрытый checkbox, отвечающий за переключение ,боковой панели
-
-    `id` атрибут предназначен для связки с атрибутом `for` тега <label>
-
-    Атрибут `hidden` указывает состояние «скрытый» у текущего элемента
-    -->
-    <input type="checkbox" id="nav-toggle" hidden>
 
     <header class="header">
       <div class="header-left-section">
@@ -51,11 +44,7 @@
     <div class="side-bar-container">
 
       <div class="calendar-container">
-        <div class="calendar-wrapper">
-          <button id="btnPrev" type="button">Предыдущий</button>
-          <button id="btnNext" type="button">Следующий</button>
-          <div id="divCal"></div>
-        </div>
+        <input class="calendar" id="airdatepicker" type="text"></input>
       </div>
 
       <div class="stack-title-container">
@@ -397,7 +386,7 @@
       </div>
     </main>
 
-    
+    <script src="airdatepicker/air-datepicker.js"></script>
     <script type="module" src="scripts/mainPage.js"></script>
   </body>
 </html>
