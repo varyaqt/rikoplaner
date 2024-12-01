@@ -112,7 +112,7 @@
 
 .air-datepicker-cell.-selected-.-current- {
     color: #fff;
-    background: var(--adp-cell-background-color-selected);
+    background: rgb(60,91,120);
 }
 
 
@@ -496,7 +496,7 @@
     --adp-background-color-selected-other-month: #a2ddf6;
     --adp-color: #4a4a4a;
     --adp-color-secondary: #9c9c9c;
-    --adp-accent-color: #4eb5e6;
+    --adp-accent-color: rgb(60,91,120);
     --adp-color-current-date: var(--adp-accent-color);
     --adp-color-other-month: #dedede;
     --adp-color-disabled: #aeaeae;
