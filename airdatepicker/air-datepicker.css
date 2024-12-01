@@ -824,4 +824,23 @@
     --adp-nav-height: 24px; /* Уменьшаем высоту навигации */
     --adp-nav-action-size: 24px; /* Уменьшаем размер иконок навигации */
     --adp-padding: 2px; /* Уменьшаем отступы внутри календаря */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+.air-datepicker-cell.-current- {
+    border: 2px solid rgb(60,91,120); /* Рамка вокруг сегодняшней даты */
+    border-radius: var(--adp-cell-border-radius); /* Закругленные углы */
+}
+
+.air-datepicker-cell.-selected- {
+    background-color: rgb(60,91,120); /* Новый цвет фона для выбранной даты */
+    color: #ffffff; /* Новый цвет текста для выбранной даты */
+}
+
+.air-datepicker-body--day-name {
+    color: rgb(60,91,120); /* Новый цвет текста для названий дней недели */
 }
