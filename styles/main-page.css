@@ -1,10 +1,7 @@
 main {
-  margin-top: 70px;
-  margin-left: 27px;
+  margin-top: 65px;
+  margin-left: 290px;
 
-  -webkit-transition: -webkit-transform .3s;
-  -moz-transition: -moz-transform .3s;
-  transition: transform .3s;
 
   display: flex;
   flex-direction: row;
