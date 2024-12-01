@@ -110,20 +110,11 @@
     border-radius: var(--adp-cell-border-radius);
 }
 
-.air-datepicker-cell.-selected- {
-    color: #fff;
-    border: none;
-    background: var(--adp-cell-background-color-selected);
-}
-
 .air-datepicker-cell.-selected-.-current- {
     color: #fff;
     background: var(--adp-cell-background-color-selected);
 }
 
-.air-datepicker-cell.-selected-.-focus- {
-    background: var(--adp-cell-background-color-selected-hover);
-}
 
 .air-datepicker-body {
     transition: all var(--adp-transition-duration) var(--adp-transition-ease);
