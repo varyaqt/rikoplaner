@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .calendar-container {
@@ -43,41 +44,53 @@
   padding-left: 85px;
   font-size: 18px;
   color: rgb(60,91,120);
-  border: 1px solid #dcdcff;
-  border-radius: 5px;
+  border: 3px solid rgb(60,91,120);
+  border-radius: 10px;
   background: #fff;
 }
 
-.stack-title-container {
+.add-todo-to-stack {
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 270px;
+  font-size: 13px;
+  color: #97AEBE;
+  background: #fff;
+
+  height: 38px;
+  border-radius: 30px;
+  border: none;
+
   display: flex;
   flex-direction: row;
-  height: 35px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  margin-left: 50px;
+
+  position: relative;
 }
 
-.stack-title {
-  color: rgb(60,91,120);
-  font-size: 15px;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.add-todo-to-stack-button {
-  height: 25px;
-  width: 25px;
+.input-todo {
+  width: 100%;
+  height: 35px;
+  padding-left: 95px;
   border: none;
+  border-radius: 10px;
 }
 
-.add-todo-to-stack-button img {
- width: 15px;
- margin-top: 2px;
- margin-right: 2px;
+/* Изменение цвета плейсхолдера */
+.input-todo::placeholder {
+  color: rgb(60,91,120); /* Цвет плейсхолдера */
+  opacity: 1; /* Устанавливаем непрозрачность на 1, чтобы цвет был полностью видимым */
+  font-size: 13px;
+  font-weight: 400;
 }
 
-.add-todo-to-stack-button:hover {
-  cursor: pointer;
+.add-stack-icon {
+  position: absolute;
+  top: 12px;
+  left: 70px;
+  height: 14px;
 }
 
 .stack-list-container {
@@ -92,7 +105,8 @@
   overflow-y: scroll;
 }
 
-.todo-container {
+.todo-container-stack {
+  padding: 12px 10px;
   background-color: rgb(60,91,120);
   margin-top: 5px;
   margin-bottom: 5px;
@@ -102,48 +116,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.name-of-todo {
-  flex: 1;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 10px;
-  margin-bottom: 5px;
   font-size: 15px;
   color: white;
   font-weight: 700;
 }
 
-.more-info-of-todo {
-  flex: 1;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 5px;
-  align-items: center;
-}
 
-.more-info-of-todo img {
-  height: 20px;
-  margin-right: 2px;
-}
-
-.deadline-date {
-  color: white;
-  font-size: 15px;
-  display: inline;
-  margin-left: 2px;
-  padding-top: 2px;
-}
 
 .count-todo-in-stack-list {
-  margin-left: 110px;
   height: 20px;
   text-align: start;
   padding-top: 7px;
   color: rgb(60,91,120);
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 700;
 }

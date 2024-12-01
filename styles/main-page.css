@@ -9,7 +9,7 @@ main {
   align-items: flex-start;
 
   
-  width: 2445px;
+  width: 2165px;
 }
 
 .day-container {
@@ -56,9 +56,9 @@ main {
   color: #97AEBE;
 }
 
-.add-todo-button {
-  margin-left: 15px;
-  margin-right: 15px;
+.add-todo-to-day {
+  margin-left: 10px;
+  margin-right: 10px;
   height: 38px;
   border-radius: 10px;
   border: none;
@@ -69,12 +69,31 @@ main {
   align-items: center;
   color: #97AEBE;
   font-size: 13px;
+
+  position: relative;
 }
 
-.add-todo-button img {
-  height: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
+.input-todo-day {
+  width: 100%;
+  height: 35px;
+  padding-left: 30px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Изменение цвета плейсхолдера */
+.input-todo-day::placeholder {
+  color: #97AEBE; /* Цвет плейсхолдера */
+  opacity: 1; /* Устанавливаем непрозрачность на 1, чтобы цвет был полностью видимым */
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.add-todo-day-icon {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  height: 14px;
 }
 
 .todo-day-list {
@@ -85,6 +104,7 @@ main {
 }
 
 .todo-day-container {
+  padding: 12px 10px;
   background-color: rgb(122, 173, 194);
   margin-top: 5px;
   margin-bottom: 5px;
@@ -94,4 +114,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 15px;
+  color: white;
+  font-weight: 700;
 }
