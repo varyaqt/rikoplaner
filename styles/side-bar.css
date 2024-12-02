@@ -87,6 +87,9 @@
 .input-active {
   border: none;
   outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-left: 10px;
 }
 
 /* Изменение цвета плейсхолдера */
@@ -95,6 +98,21 @@
   opacity: 1; /* Устанавливаем непрозрачность на 1, чтобы цвет был полностью видимым */
   font-size: 13px;
   font-weight: 400;
+}
+
+.not-active-input-stack::placeholder {
+  color: rgb(122, 25, 25);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.not-active-input-stack {
+  border: 3px solid rgb(60,91,120);
+  padding-left: 70px;
+}
+
+.unvisible-input-img {
+  display: none;
 }
 
 .add-stack-icon {
@@ -112,6 +130,7 @@
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border: 3px solid rgb(60,91,120);
+  cursor: pointer;
   position: relative;
 }
 
@@ -147,9 +166,13 @@
   font-size: 15px;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
 
-
+.todo-container-stack:hover {
+  opacity: 0.96;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+}
 
 .count-todo-in-stack-list {
   height: 20px;
