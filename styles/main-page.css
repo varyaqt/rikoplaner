@@ -79,6 +79,8 @@ main {
   padding-left: 30px;
   border: none;
   border-radius: 10px;
+  color: rgb(60,91,120);
+  font-size: 15px;
 }
 
 /* Изменение цвета плейсхолдера */
