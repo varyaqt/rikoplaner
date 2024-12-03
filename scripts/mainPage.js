@@ -117,7 +117,11 @@ function removeTaskfromStack(taskId) {
 
 // пометка задачи как выполненной в стеке
 function completeTaskInStack(taskId) {
-
+  const taskNameElement = document.getElementById(`taskNameId${taskId}`);
+  taskNameElement.style.textDecoration = 'line-through';
+  setTimeout(() => {
+    removeTaskfromStack(taskId);
+  }, 2000);
 }
 
 // Скрываем плюсик при фокусе на поле ввода
@@ -153,7 +157,4 @@ inputElement.addEventListener('keydown', (event) => {
     }
   }
 });
-
-
-
 
