@@ -5,7 +5,7 @@ registrationFormElement.addEventListener('submit', (event) =>
     event.preventDefault(); // Предотвращаем отправку формы
 
     let username = document.getElementById('username').value;
-    let secretWord = document.getElementById('secretWord').value;
+    let secret_word = document.getElementById('secretWord').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirmPassword').value;
 
@@ -22,7 +22,7 @@ registrationFormElement.addEventListener('submit', (event) =>
     }
     
     // Собираем данные с формы
-  const data = { username, password, secretWord }
+  const data = { username, password, secret_word }
 
   fetch('/register', {
     method: 'POST',
