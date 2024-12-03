@@ -31,55 +31,6 @@ class User(BaseModel):
     password: str
     secret_word: str
 
-    @field_validator("username")
-    @classmethod
-    def validate_username(cls, value):
-        list_symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
-        list_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        flag_s = 1
-        for c in value:
-            if c not in list_symbols:
-                flag_s = 0
-                break
-        if flag_s == 0:
-            raise ValueError("В логине можно использовать только латиницу, цифры и символ нижнего подчеркивания")
-        flag_l = 0
-        for c in value:
-            if c in list_letters:
-                flag_l = 1
-                break
-        if flag_l == 0:
-            raise ValueError("В логине должна быть хотя бы одна буква")
-        if len(value) < 5:
-            raise ValueError("Слишком короткий логин, должно быть хотя бы 5 символов")
-        return value
-
-    @field_validator("password")
-    @classmethod
-    def validate_password(cls, value):
-        password_length = len(value)
-        if password_length < 8:
-            raise ValueError("Длина пароля должна быть не менее 8 символов")
-        if password_length > 16:
-            raise ValueError("Длина пароля должна быть не более 16 символов")
-        list_numbers = "0123456789"
-        list_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        flag_n = 0
-        flag_l = 0
-        for c in value:
-            if c in list_numbers:
-                flag_n = 1
-                break
-        for c in value:
-            if c in list_letters:
-                flag_l = 1
-                break
-        if flag_n == 0:
-            raise ValueError("Пароль должен содержать хотя бы одну цифру")
-        if flag_l == 0:
-            raise ValueError("Пароль должен содержать хотя бы одну букву")
-        return value
-
 class Token(BaseModel):
     access_token: str
     token_type: str
@@ -90,8 +41,10 @@ class TokenData(BaseModel):
 class Task(BaseModel):
     title: str
     description: str
-    due_date: datetime
     user_id: str  # Ссылка на пользователя, которому принадлежит задача
+    date: datetime
+    is_done: bool = False
+    
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
@@ -214,6 +167,19 @@ def delete_task(task_id: str, current_user: dict = Depends(get_current_user)):
     if result.deleted_count == 1:
         return {"message": "Task deleted successfully"}
     raise HTTPException(status_code=404, detail="Task not found")
+
+@app.get("/users/{user_id}", response_model=User)
+def get_user_by_id(user_id: str, current_user: dict = Depends(get_current_user)):
+    # Проверка, что пользователь пытается получить свои данные
+    if str(current_user["_id"]) != user_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
+    # Получение пользователя по ID из MongoDB
+    user = users_collection.find_one({"_id": ObjectId(user_id)})
+    if user:
+        user["_id"] = str(user["_id"])
+        return user
+    raise HTTPException(status_code=404, detail="User not found")
 
 # Запуск приложения
 if __name__ == "__main__":
