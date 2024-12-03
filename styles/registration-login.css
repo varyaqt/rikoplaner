@@ -87,7 +87,7 @@
 .login-input,
 .code-word-input,
 .password-input,
-.password-double-input {
+.password-confirm-input {
   flex: 1;
   font-size: 17px;
   padding-top: 9px;

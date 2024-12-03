@@ -1,42 +1,50 @@
 
 const registrationFormElement = document.getElementById('registrationForm')
-registrationFormElement.addEventListener('submit', async (event) => 
+registrationFormElement.addEventListener('submit', (event) => 
   {
     event.preventDefault(); // Предотвращаем отправку формы
 
-    // проверка на то, что в поле "подтверждения пароля" введен такой же пароль
-    let password = document.getElementsByName('password')[0].value;
-    let confirmPassword = document.getElementsByName('confirm_password')[0].value;
+    let username = document.getElementById('username').value;
+    let secretWord = document.getElementById('secretWord').value;
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirmPassword').value;
 
+    // проверка на то, что в поле "подтверждения пароля" введен такой же пароль
     if (password !== confirmPassword) {
       alert("Пароли не совпадают!");
-      event.preventDefault(); // Предотвращаем отправку формы
+      return;
     }
 
+    // проверка длины пароля
+    if (password.length < 8) {
+      alert("Пароль должен состоять минимум из 8 символов!");
+      return;
+    }
+    
     // Собираем данные с формы
-    const formData = new FormData(event.target);
-    console.log(Array.from(formData.entries()))
+  const data = { username, password, secretWord }
 
-    try {
-      const response = await fetch('/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-  
-      if (response.ok) {
-        alert('Аккаунт успешно создан!');
-        window.location.href = 'login.html'; // Перенаправление на страницу входа
-      } else {
-        const errorData = await response.json();
-        alert(`Ошибка: ${errorData.detail}`);
-      }
-    } catch (error) {
-      console.error('Ошибка при отправке данных:', error);
-      alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова.');
+  fetch('/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Server response:', data); // Отладка ответа от сервера
+
+    // проверка, что объект user существует в ответе
+    if (data.user) {
+      console.log('Fegistration successful');
+      window.location.href = 'login.html'; // Перенаправление на страницу входа
+    } else {
+      alert('Ошибка регистрации.')
     }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Ошибка регистрации.')
+  });
 });
-
-

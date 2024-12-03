@@ -16,19 +16,19 @@
       <div class="reg-container">
         <img class="penguin-icon" src="icons/penguin.svg">
         <p class="registration-text">РЕГИСТРАЦИЯ</p>
-        <form class="registration-form" id="registrationForm" action="/register" method="POST">
+        <form class="registration-form" id="registrationForm" method="post">
           <div class="input-stroke">
             <div class="icon-input">
               <img src="icons/user-profile-icon.svg">
             </div>
-            <input class="login-input" type="text" name="username" placeholder="Введите логин" required></input>
+            <input class="login-input" type="text" name="username" id="username" placeholder="Введите логин" required></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
               <img src="icons/code-word-icon.png">
             </div>
             <div class="code-word-input-container">
-              <input class="code-word-input" type="password" name="code_word" placeholder="Введите кодовое слово" required></input>
+              <input class="code-word-input" type="password" name="secret_word" id="secretWord" placeholder="Введите кодовое слово" required></input>
               <div class="info-icon">
                 <img src="icons/information-circle-icon.svg">
                 <div class="info-text">
@@ -44,13 +44,13 @@
             <div class="icon-input">
               <img src="icons/password-icon.svg">
             </div>
-            <input class="password-input" type="password" name="password" placeholder="Введите пароль" required></input>
+            <input class="password-input" type="password" name="password" id="password" placeholder="Введите пароль" required></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
               <img src="icons/password-icon.svg">
             </div>
-            <input class="password-double-input" type="password" name="confirm_password" placeholder="Повторите пароль" required></input>
+            <input class="password-confirm-input" type="password" name="confirm_password" id="confirmPassword" placeholder="Повторите пароль" required></input>
           </div>
           <button class="create-account-button" type="submit">
             Создать аккаунт
