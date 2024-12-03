@@ -1,7 +1,8 @@
 import { 
   stackList, 
   checkFullStack, 
-  sortStackList 
+  sortStackList, 
+  deleteTaskFromStackList
 } from "../data/stackList.js";
 
 
@@ -27,13 +28,9 @@ const inputContainer = document.querySelector('.js-add-todo-to-stack');
 const addToStackButtonElement = document.getElementById('addStackButton');
 const taskInStackElement = document.querySelector('.js-todo-container-stack');
 
-checkInputStackAvailable();
-
-updateSizeStack();
-
 renderStackList();
 
-// определяю размер стека
+// определяем размер стека
 function updateSizeStack() {
   const sizeStackElement = document.querySelector('.js-size-stack');
   sizeStackElement.innerHTML = `${stackList.length}/10`;
@@ -57,19 +54,42 @@ function checkInputStackAvailable() {
   };
 };
 
-// при запуске загружаем весь стек на страницу
+// генерация списка задач в стеке
 function renderStackList() {
   const stackListElement = document.querySelector('.js-stack-list-container');
   sortStackList();
   let html = ``;
   stackList.forEach((element) => {
     html += `
-      <div class="todo-container-stack" id="stackTask${element.id}">
-        ${element.name} 
+      <div class="todo-container-stack js-task-in-stack" task-id="${element.id}">
+        <div class="task-name" id="taskNameId${element.id}">${element.name}</div>
+        <button class="task-done-button js-task-done-button" task-id="${element.id}">Выполнено</button>
+        <button class="delete-task-button js-delete-task-button" task-id="${element.id}">Удалить</button>
       </div>
     `;
   });
   stackListElement.innerHTML = html;
+
+  checkInputStackAvailable();
+  updateSizeStack();
+
+  // Добавляем обработчики событий для кнопок удаления
+  const deleteTaskButtonElements = document.querySelectorAll('.js-delete-task-button');
+  deleteTaskButtonElements.forEach(button => {
+    button.addEventListener('click', (event => {
+      const taskId = Number(event.target.getAttribute('task-id'));
+      removeTaskfromStack(taskId);
+    }));
+  });
+
+  // Добавляем обработчики событий для кнопок "Выполнено"
+  const doneTasksButtonElements = document.querySelectorAll('.js-task-done-button');
+  doneTasksButtonElements.forEach(button => {
+    button.addEventListener('click', (event => {
+      const taskId = Number(event.target.getAttribute('task-id'));
+      completeTaskInStack(taskId);
+    }));
+  });
 };
 
 // добавление новой задачи в стек
@@ -86,19 +106,25 @@ function addTaskToStack(taskName) {
   };
   stackList.push(newTask);
   renderStackList();
-  updateSizeStack();
   inputElement.value = '';
-  checkInputStackAvailable();
 }
 
+// удаление задачи из стека
+function removeTaskfromStack(taskId) {
+  deleteTaskFromStackList(taskId);
+  renderStackList();
+}
 
+// пометка задачи как выполненной в стеке
+function completeTaskInStack(taskId) {
+
+}
 
 // Скрываем плюсик при фокусе на поле ввода
 inputElement.addEventListener('focus', () => {
   placeholderImage.classList.add('unvisible-input-img');
   inputElement.classList.add('input-active');
   addToStackButtonElement.style.display = 'block';
-  
 });
 
 
@@ -127,5 +153,7 @@ inputElement.addEventListener('keydown', (event) => {
     }
   }
 });
+
+
 
 

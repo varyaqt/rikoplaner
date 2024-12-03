@@ -9,9 +9,6 @@ export let stackList = [
   }
 ];
 
-sortStackList();
-// console.log(typeof Number(stackList[0].id));
-
 export function sortStackList() {
   if (stackList.length !== 0) {
     stackList.sort((a, b) => b.id - a.id);
@@ -24,3 +21,7 @@ export function checkFullStack() {
   }
   return true;
 };
+
+export function deleteTaskFromStackList(taskId) {
+  stackList = stackList.filter(task => task.id !== taskId);
+}
