@@ -38,7 +38,7 @@ registrationFormElement.addEventListener('submit', (event) =>
     // проверка, что объект user существует в ответе
     if (data.user) {
       console.log('Fegistration successful');
-      window.location.href = 'login.html'; // Перенаправление на страницу входа
+      window.location.href = './login.html'; // Перенаправление на страницу входа
     } else {
       alert('Ошибка регистрации.')
     }
