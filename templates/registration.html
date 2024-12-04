@@ -7,34 +7,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="icons/icon-for-head.svg">
-    <link rel="stylesheet" href="./styles/general.css">
-    <link rel="stylesheet" href="./styles/registration-login.css">
+    <link rel="icon" href="../static/icons/icon-for-head.svg">
+    <link rel="stylesheet" href="../static/styles/general.css">
+    <link rel="stylesheet" href="../static/styles/registration-login.css">
+    <script src="../static/scripts/registerForm.js"></script>
   </head>
   <body class="body-reg-login">
     <div class="background">
       <div class="reg-container">
-        <img class="penguin-icon" src="icons/penguin.svg">
+        <img class="penguin-icon" src="../static/icons/penguin.svg">
         <p class="registration-text">РЕГИСТРАЦИЯ</p>
         <form class="registration-form" id="registrationForm" method="post">
           <div class="input-stroke">
             <div class="icon-input">
-              <img src="icons/user-profile-icon.svg">
+              <img src="../static/icons/user-profile-icon.svg">
             </div>
             <input class="login-input" type="text" name="username" id="username" placeholder="Введите логин" required></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
-              <img src="icons/code-word-icon.png">
+              <img src="../static/icons/code-word-icon.png">
             </div>
             <div class="code-word-input-container">
               <input class="code-word-input" type="password" name="secret_word" id="secretWord" placeholder="Введите кодовое слово" required></input>
               <div class="info-icon">
-                <img src="icons/information-circle-icon.svg">
+                <img src="../static/icons/information-circle-icon.svg">
                 <div class="info-text">
-                  Придумайте кодовое слово, 
-                  оно может понадобиться для 
-                  восстановления пароля. Не забудьте его, 
+                  Придумайте кодовое слово,
+                  оно может понадобиться для
+                  восстановления пароля. Не забудьте его,
                   иначе восстановить аккаунт будет невозможно!
                 </div>
               </div>
@@ -42,13 +43,13 @@
           </div>
           <div class="input-stroke">
             <div class="icon-input">
-              <img src="icons/password-icon.svg">
+              <img src="../static/icons/password-icon.svg">
             </div>
             <input class="password-input" type="password" name="password" id="password" placeholder="Введите пароль" required></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
-              <img src="icons/password-icon.svg">
+              <img src="../static/icons/password-icon.svg">
             </div>
             <input class="password-confirm-input" type="password" name="confirm_password" id="confirmPassword" placeholder="Повторите пароль" required></input>
           </div>
@@ -59,11 +60,11 @@
             <p class="already-registered-text">
               УЖЕ ЕСТЬ АККАУНТ?
             </p>
-            <a href="login.html">ВОЙТИ</a>
+            <a href="/login">ВОЙТИ</a>
           </div>
         </form>
       </div>
     </div>
-    <script type="module" src="scripts/registerForm.js"></script>
+    <script type="module" src="../static/scripts/registerForm.js"></script>
   </body>
 </html>
