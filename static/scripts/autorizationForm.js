@@ -64,12 +64,14 @@ loginFormElement.addEventListener('submit', (event) => {
     loginUser(username, password)
         .then(data => {
             console.log('Login successful:', data);
+            alert('Login successful:', data);
             // Получаем данные пользователя по _id
             const user_id = data.user_id; // Предположим, что user_id возвращается в ответе
             return getUserById(user_id);
         })
         .then(userData => {
             console.log('User data:', userData);
+            alert('User data:', userData);
             // Здесь вы можете использовать данные пользователя
         })
         .catch(error => {
