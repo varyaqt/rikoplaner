@@ -5,9 +5,6 @@ import {
   deleteTaskFromStackList
 } from "../../data/stackList.js";
 
-// Импортируем функции для аутентификации из auth.js
-import { loginUser, getUserById } from './autorizationForm.js';
-
 // calendar
 new AirDatepicker('#airdatepicker', {
   inline: true
