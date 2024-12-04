@@ -53,5 +53,30 @@ function getUserById(user_id) {
     });
 }
 
+// Форма для аутентификации
+const loginFormElement = document.getElementById('loginForm');
+loginFormElement.addEventListener('submit', (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+
+    loginUser(username, password)
+        .then(data => {
+            console.log('Login successful:', data);
+            // Получаем данные пользователя по _id
+            const user_id = data.user_id; // Предположим, что user_id возвращается в ответе
+            return getUserById(user_id);
+        })
+        .then(userData => {
+            console.log('User data:', userData);
+            // Здесь вы можете использовать данные пользователя
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Ошибка аутентификации.');
+        });
+});
+
 // Экспортируем функции, чтобы их можно было использовать в других файлах
 export { loginUser, getUserById };
