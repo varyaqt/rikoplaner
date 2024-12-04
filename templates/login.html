@@ -17,18 +17,18 @@
       <div class="login-container">
         <img class="penguin-icon" src="../static/icons/penguin.svg">
         <p class="registration-text">АВТОРИЗАЦИЯ</p>
-        <form class="login-form">
+        <form class="login-form" id="loginForm">
           <div class="input-stroke">
             <div class="icon-input">
               <img src="../static/icons/user-profile-icon.svg">
             </div>
-            <input class="login-input" type="text" placeholder="Введите логин"></input>
+            <input class="login-input" type="text" id="username" name="username" placeholder="Введите логин"></input>
           </div>
           <div class="input-stroke">
             <div class="icon-input">
               <img src="../static/icons/password-icon.svg">
             </div>
-            <input class="password-input" type="password" placeholder="Введите пароль"></input>
+            <input class="password-input" type="password" id="password" name="password" placeholder="Введите пароль"></input>
           </div>
           <button class="login-account-button">Вход</button>
           <div class="already-registered">

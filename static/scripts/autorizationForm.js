@@ -1,5 +1,5 @@
 // Функция для аутентификации пользователя и получения токена
-function loginUser(username, password) {
+export function loginUser(username, password) {
     const data = { username, password };
 
     return fetch('http://127.0.0.1:8000/token', {
@@ -28,7 +28,7 @@ function loginUser(username, password) {
 }
 
 // Функция для получения данных пользователя по _id
-function getUserById(user_id) {
+export function getUserById(user_id) {
     const token = localStorage.getItem('access_token');
 
     return fetch(`http://127.0.0.1:8000/users/${user_id}`, {
@@ -77,6 +77,3 @@ loginFormElement.addEventListener('submit', (event) => {
             alert('Ошибка аутентификации.');
         });
 });
-
-// Экспортируем функции, чтобы их можно было использовать в других файлах
-export { loginUser, getUserById };
