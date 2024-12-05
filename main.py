@@ -1,11 +1,11 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 from bson import ObjectId
 from typing import List
-from jose import JWTError, jwt
+import jwt
 from passlib.context import CryptContext
 from starlette.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -100,7 +100,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         if username is None:
             raise credentials_exception
         token_data = TokenData(username=username)
-    except JWTError:
+    except jwt.JWTError:
         raise credentials_exception
     user = get_user(username=token_data.username)
     if user is None:
@@ -132,7 +132,6 @@ async def get_start_page():
         html_content = file.read()
     return HTMLResponse(content=html_content)
 
-
 @app.post("/token", response_model=Token)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(form_data.username, form_data.password)
@@ -148,7 +147,12 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+# <<<<<<< HEAD
 @app.get("/", response_class=HTMLResponse)
+
+
+@app.get("/login", response_class=HTMLResponse)
+# >>>>>>> aa42870 (.)
 async def get_login_page():
     with open("templates/login.html", "r", encoding="utf-8") as file:
         html_content = file.read()
