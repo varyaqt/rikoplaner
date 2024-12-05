@@ -126,6 +126,11 @@ def register_user(user: User):
     result = users_collection.insert_one(user_data)
     return {"message": "User registered successfully", "user_id": str(result.inserted_id)}
 
+@app.get("/main", response_class=HTMLResponse)
+async def get_start_page():
+    with open("templates/main-page.html", "r", encoding="utf-8") as file:
+        html_content = file.read()
+    return HTMLResponse(content=html_content)
 
 
 @app.post("/token", response_model=Token)
@@ -143,7 +148,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
-@app.get("/login", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 async def get_login_page():
     with open("templates/login.html", "r", encoding="utf-8") as file:
         html_content = file.read()
