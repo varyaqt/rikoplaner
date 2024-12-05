@@ -28,3 +28,15 @@ RikoNotes создан командой из трёх студенток БПМ-
 > Добрый день! Я бы удалил pycharm
 > 
 > *— Станислав Киселев*
+
+
+```bash
+
+git add .gitignore
+git commit -m "Add Gitgnore"
+
+git rm -rf venv __pycache__ .idea
+git add .
+git commit -m "Remove GARBAGE"
+
+```

@@ -28,10 +28,10 @@ export function loginUser(username, password) {
 }
 
 // Функция для получения данных пользователя по _id
-export function getUserById(user_id) {
+export async function getUserById(user_id) {
     const token = localStorage.getItem('access_token');
 
-    return fetch(`http://127.0.0.1:8000/users/${user_id}`, {
+    return await fetch(`http://127.0.0.1:8000/users/${user_id}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -55,19 +55,19 @@ export function getUserById(user_id) {
 
 // Форма для аутентификации
 const loginFormElement = document.getElementById('loginForm');
-loginFormElement.addEventListener('submit', (event) => {
+loginFormElement.addEventListener('submit', async (event) => {
     event.preventDefault(); // Предотвращаем отправку формы
 
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
 
-    loginUser(username, password)
-        .then(data => {
+    await loginUser(username, password)
+        .then(async data => {
             console.log('Login successful:', data);
             alert('Login successful:', data);
             // Получаем данные пользователя по _id
             const user_id = data.user_id; // Предположим, что user_id возвращается в ответе
-            return getUserById(user_id);
+            return await getUserById(user_id);
         })
         .then(userData => {
             console.log('User data:', userData);
