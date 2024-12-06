@@ -64,15 +64,14 @@ loginFormElement.addEventListener('submit', async (event) => {
     await loginUser(username, password)
         .then(async data => {
             console.log('Login successful:', data);
-            alert('Login successful:', data);
             // Получаем данные пользователя по _id
             const user_id = data.user_id; // Предположим, что user_id возвращается в ответе
             return await getUserById(user_id);
         })
         .then(userData => {
             console.log('User data:', userData);
-            alert('User data:', userData);
             // Здесь вы можете использовать данные пользователя
+            window.location.href = '/main'; // Перенаправление на главную страницу 
         })
         .catch(error => {
             console.error('Error:', error);
